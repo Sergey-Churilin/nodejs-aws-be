@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "This is an API example for Products",
-    "version" : "2020-11-01T09:43:31Z",
+    "version" : "2020-11-01T10:34:22Z",
     "title" : "dev-product-service"
   },
   "host" : "ls2z4pea12.execute-api.eu-west-1.amazonaws.com",
@@ -20,51 +20,11 @@
     "/products" : {
       "get" : {
         "responses" : { }
-      },
-      "options" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "responses" : {
-          "200" : {
-            "description" : "200 response",
-            "headers" : {
-              "Access-Control-Allow-Origin" : {
-                "type" : "string"
-              },
-              "Access-Control-Allow-Methods" : {
-                "type" : "string"
-              },
-              "Access-Control-Allow-Headers" : {
-                "type" : "string"
-              }
-            }
-          }
-        }
       }
     },
     "/products/{productId}" : {
       "get" : {
         "responses" : { }
-      },
-      "options" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "responses" : {
-          "200" : {
-            "description" : "200 response",
-            "headers" : {
-              "Access-Control-Allow-Origin" : {
-                "type" : "string"
-              },
-              "Access-Control-Allow-Methods" : {
-                "type" : "string"
-              },
-              "Access-Control-Allow-Headers" : {
-                "type" : "string"
-              }
-            }
-          }
-        }
       }
     }
   }

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "swagger": "serverless downloadDocumentation --outputFileName=swagger.json",
     "test": "jest"
   },
   "repository": {
