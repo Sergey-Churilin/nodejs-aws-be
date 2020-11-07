@@ -1,0 +1,31 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is an API example for Products",
+    "version" : "2020-11-01T10:34:22Z",
+    "title" : "dev-product-service"
+  },
+  "host" : "ls2z4pea12.execute-api.eu-west-1.amazonaws.com",
+  "basePath" : "/dev",
+  "tags" : [ {
+    "name" : "product",
+    "description" : "Everything about Products",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://swagger.io"
+    }
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/products" : {
+      "get" : {
+        "responses" : { }
+      }
+    },
+    "/products/{productId}" : {
+      "get" : {
+        "responses" : { }
+      }
+    }
+  }
+}
