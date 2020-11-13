@@ -1,4 +1,5 @@
 'use strict';
+
 const { Client } = require('pg');
 import { dbOptions, response } from '../config/config';
 
