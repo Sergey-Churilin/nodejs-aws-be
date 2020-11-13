@@ -1,0 +1,33 @@
+--create table products (
+--	id uuid primary key default uuid_generate_v4(),
+--    title text not null,
+--    description text,
+--    price integer
+--)
+
+/*create table stocks (
+	id uuid primary key default uuid_generate_v4(),
+	product_id uuid,
+    count integer,
+    foreign key ("product_id") references "products" ("id")
+)*/
+
+--insert into products (title, description, price) values
+--('ProductOne', 'Short Product Description1', 22),
+--('ProductNew', 'Short Product Description1', 10),
+--('ProductTop', 'Short Product Description1', 23),
+--('ProductTitle', 'Short Product Description7', 15),
+--('Product', 'Short Product Description2', 23),
+--('ProductTest', 'Short Product Description4', 15),
+--('Product2', 'Short Product Description1', 23),
+--('ProductName', 'Short Product Description7', 15)
+
+/*insert into stocks (product_id, count) values
+('10f562bf-f3c6-4eb0-a2cf-c45ebe7f4b12', 5),
+('5bd57d46-e3d4-403d-9d4d-1d02319af458', 0),
+('4839a90f-d6a9-45cd-a009-5ede4a7b8087', 23),
+('4d4b9123-0bea-4e0f-970f-f9e79a8d321f', 11),
+('970bb33e-7de9-4c75-883e-afd978a9c8d7', 4),
+('d822777f-36ac-4c35-969a-434d80649544', 15),
+('d335a16c-d64c-430f-bba8-189e9225e4c6', 12),
+('ad37c948-e8c3-4e39-b115-a09fe6541616', 8)*/
