@@ -7,3 +7,5 @@ jspm_packages
 
 #ide directory
 .idea/
+
+.env
