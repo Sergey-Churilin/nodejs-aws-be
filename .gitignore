@@ -4,7 +4,8 @@ jspm_packages
 
 # Serverless directories
 .serverless
-serverless.yml
 
 #ide directory
 .idea/
+
+.env
