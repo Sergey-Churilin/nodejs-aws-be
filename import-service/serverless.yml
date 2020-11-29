@@ -50,6 +50,24 @@ resources:
         Protocol: email
         TopicArn:
           Ref: SNSTopic
+    GatewayResponseAccessDenied:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: 'ACCESS_DENIED'
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
+    GatewayResponseUnauthorized:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: 'UNAUTHORIZED'
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
 
 plugins:
   - serverless-webpack
@@ -64,11 +82,20 @@ functions:
   importProductsFile:
     handler: handler.importProductsFile
     events:
-      - http: GET import
+      - http:
+          path: import
+          method: get
+          cors: true
         request:
           parameters:
             querystrings:
               name: true
+        authorizer:
+          name: tokenAuth
+          arn: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:authorization-service-dev-basicAuthorizer"
+          resultTtlInSeconds: 0
+          identitySource: method.request.header.Authorization
+          type: token
   importFileParser:
     handler: handler.importFileParser
     events:
