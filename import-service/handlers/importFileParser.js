@@ -9,6 +9,8 @@ export const importFileParser = event => {
         signatureVersion: 'v4',
         region: 'eu-west-1'
     });
+
+    const sqs = new AWS.SQS();
     event.Records.forEach(record => {
         const Key = record.s3.object.key;
         const s3Stream = s3.getObject({
@@ -18,12 +20,23 @@ export const importFileParser = event => {
 
         s3Stream.pipe(csv())
            .on('data', data => {
+               sqs.sendMessage({
+                   QueueUrl: process.env.SQS_URL,
+                   MessageBody: JSON.stringify({...data})
+               }, (err) => {
+                   if (err) {
+                       console.log('SQS error occur ON DATA', err);
+                   } else {
+                       console.log(`Send message with: ${JSON.stringify(data)}`);
+                   }
+               })
                console.log('ON DATA', data);
            })
            .on('error', err => {
                console.log('ON ERROR', err);
            })
            .on('end', async () => {
+               console.log(`All products parsed`);
                console.log(`Copy from ${Bucket}/${Key}`);
 
                await s3.copyObject({
