@@ -7,6 +7,7 @@
     "start": "node index.js",
     "eb-init": "eb init --platform node.js --region eu-west-1",
     "eb-create": "eb create development --single --cname Sergey-Churilin-bff-develop",
+    "eb-deploy": "eb deploy",
     "eb-terminate": "eb terminate"
   },
   "repository": {
