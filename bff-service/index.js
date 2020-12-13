@@ -8,7 +8,7 @@ const PORT = process.env.PORT|| 3001;
 const cacheTimeLimit = 120000;
 const cache = {};
 const isCacheValid = () => cache.time && (Date.now() - cache.time < cacheTimeLimit);
-const isProductCache =  req => req.method === "GET" && req.originalUrl === "/product";
+const isProductCache =  req => req.method === "GET" && req.originalUrl === "/products";
 app.use(express.json());
 
 app.all('/*', (req, res) => {
@@ -19,6 +19,7 @@ app.all('/*', (req, res) => {
    if (isProductCache(req) && isCacheValid()) {
        console.log("Send cache data");
        res.json(cache.data);
+       return;
    }
    const recipient = req.originalUrl.split('/')[1];
    console.log(recipient);
